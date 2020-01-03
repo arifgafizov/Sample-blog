@@ -5,7 +5,11 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(contact_params)
-    @contact.save
+    if @contact.valid? # условие если модель валидна
+      @contact.save
+    else
+      render action: 'new' # возвращаем результат ключа action 'new'
+    end
   end
 
   private
