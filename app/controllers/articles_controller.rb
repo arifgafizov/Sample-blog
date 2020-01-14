@@ -21,6 +21,20 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @article = Article.find(params[:id]) # получаем необходимую сущность
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    if @article.update(article_params)
+        redirect_to @article 
+    else
+      render action: 'edit'
+    end
+  end
+
   private
 
   def article_params
