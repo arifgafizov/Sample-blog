@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     if @article.valid? # условие если модель валидна
       @article.save
-      redirect_to @article # redirect_to получает сущность @article и делает автоматом редирект (перенаправление)
+      redirect_to @article # redirect_to получает сущность @article и делает автоматом редирект (перенаправление, прерывая запрос) на стороне браузера
     else
       render action: 'new' # возвращаем результат ключа action 'new' т.е. представление new.html.erb, если не прошла валидация
     end
@@ -29,10 +29,17 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-        redirect_to @article 
+        redirect_to @article
     else
-      render action: 'edit'
+      render action: 'edit' # метод render возвращает данные из action которые он генерирует, не прерывая запрос
     end
+  end
+
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to articles_params
   end
 
   private

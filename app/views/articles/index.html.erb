@@ -8,7 +8,8 @@
 <!-- где article ниже это переменная из цикла @articles.each do |article|  -->
 <p>
 	<%= link_to 'Show', article_path(article) %> |
-	<%= link_to 'Edit', edit_article_path(article) %>	
+	<%= link_to 'Edit', edit_article_path(article) %> |
+	<%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>	
 </p>
 
 <hr>
