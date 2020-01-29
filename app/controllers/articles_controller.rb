@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user! # использование фильтра для ограничения доступа к последующим методам :authenticate_user! встроенного в гем devise
 
   def index
     @articles = Article.all
