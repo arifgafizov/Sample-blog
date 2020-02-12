@@ -9,6 +9,6 @@ feature "Article Creation" do
     # используем хелпер new_article_path чтоб зайти на страницу новой статьи
     visit new_article_path
     # assert, проверка на наличие текста 'New article'
-    expect(page).to have_content 'New article'
+    expect(page).to have_content I18n.t 'articles.article_new'
   end
 end
