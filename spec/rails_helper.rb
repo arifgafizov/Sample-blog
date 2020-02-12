@@ -74,3 +74,4 @@ RSpec.configure do |config|
 end
 
 require 'support/session_helper'
+require 'support/database_cleaner'
