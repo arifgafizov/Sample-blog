@@ -11,4 +11,14 @@ feature "Article Creation" do
     # assert, проверка на наличие текста 'New article'
     expect(page).to have_content I18n.t 'articles.article_new'
   end
+
+  # позволить пользователю создать статью
+  scenario "allows user to create article" do
+    visit new_article_path
+
+    fill_in :article_title, :with => 'example article title'
+    fill_in :article_text, :with => 'example article text'
+
+    click_button 'Save Article'
+  end
 end
