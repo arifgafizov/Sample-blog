@@ -34,3 +34,5 @@ en:
 
   contacts:
     contact_us: "Contact us!"
+  articles:
+    article_new: "New article"
