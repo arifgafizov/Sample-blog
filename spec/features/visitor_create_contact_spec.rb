@@ -7,6 +7,6 @@ feature "Contact Creation" do
     visit '/contacts'
 
     # assert, проверка на наличие текста 'Contact us' на странице '/contacts'
-    expect(page).to have_content 'Contact us'
+    expect(page).to have_content I18n.t 'contacts.contact_us'
   end
 end
