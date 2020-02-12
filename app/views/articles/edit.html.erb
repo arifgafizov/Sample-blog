@@ -1,4 +1,4 @@
-<h1>Edit article</h1>
+<h1><%= t('articles.article_edit') %></h1>
 <!-- url: article_path(@article), method: :put это хеш, где url: и method: это ключи хеша, а article_path(@article) и :put значение хеша  -->
 <%= form_for :article, url: article_path(@article), method: :put do |f| %>
 	<p>
